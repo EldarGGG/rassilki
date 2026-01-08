@@ -1,7 +1,10 @@
 FROM node:slim
 
-# Install dependencies for Puppeteer (Chromium)
+# Install dependencies for Puppeteer (Chromium) and Native Modules (SQLite)
 RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
     chromium \
     fonts-ipafont-gothic \
     fonts-wqy-zenhei \
