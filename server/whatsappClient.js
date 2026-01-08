@@ -1,6 +1,7 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode');
 const db = require('./database');
+const path = require('path');
 
 let client;
 let qrCodeData = null;
