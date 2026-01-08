@@ -1,0 +1,8 @@
+node_modules
+.wwebjs_auth
+client/node_modules
+client/dist
+uploads
+*.db
+*.db-journal
+.env
