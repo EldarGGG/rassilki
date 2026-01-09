@@ -9,6 +9,7 @@ let status = 'disconnected'; // disconnected, scanning, connected
 
 const initializeClient = (io) => {
     console.log('Initializing WhatsApp Client...');
+    console.log('PUPPETEER_EXECUTABLE_PATH:', process.env.PUPPETEER_EXECUTABLE_PATH);
 
     client = new Client({
         authStrategy: new LocalAuth({
@@ -16,6 +17,7 @@ const initializeClient = (io) => {
         }),
         puppeteer: {
             headless: true,
+            dumpio: true, // Show browser console logs
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -23,6 +25,7 @@ const initializeClient = (io) => {
                 '--disable-accelerated-2d-canvas',
                 '--no-first-run',
                 '--no-zygote',
+                '--single-process', // Try single process to save RAM
                 '--disable-gpu'
             ],
             executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined
