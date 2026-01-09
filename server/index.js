@@ -45,6 +45,12 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
         lines.forEach(line => {
             // Clean number: remove non-digits
             let cleanNumber = line.replace(/\D/g, '');
+
+            // Auto-fix 8 to 7 (Kazakhstan/Russia standard)
+            if (cleanNumber.length === 11 && cleanNumber.startsWith('8')) {
+                cleanNumber = '7' + cleanNumber.substring(1);
+            }
+
             if (cleanNumber.length > 5) { // Basic validation
                 numbers.push(cleanNumber);
             }
