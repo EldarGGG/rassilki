@@ -25,8 +25,8 @@ const initializeClient = (io) => {
                 '--disable-accelerated-2d-canvas',
                 '--no-first-run',
                 '--no-zygote',
-                '--single-process', // Try single process to save RAM
-                '--disable-gpu'
+                '--disable-gpu',
+                '--disable-software-rasterizer'
             ],
             executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined
         }
